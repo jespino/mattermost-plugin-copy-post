@@ -2,7 +2,7 @@
     "id": "com.mattermost.copy-post-plugin",
     "name": "Copy Post",
     "description": "Allow to copy posts content",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "webapp": {
         "bundle_path": "webapp/dist/main.js"
     }
