@@ -15,19 +15,19 @@ export default class CopyPlugin {
             // copy method if that isn't supported.
             // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard
             var clipboard = navigator.clipboard;
-            if (clipboard != undefined) {
-                clipboard.writeText(post.message).then(() => {
-                        // Success!
-                    }).catch(err => {
-                        console.error('Unable to copy to clipboard', err);
-                    });
-            } else {
+            if (typeof clipboard === 'undefined') {
                 const _ = new ClipboardJS('.copy-plugin-button', {
-                    text: () => { 
+                    text: () => {
                         return post && post.message;
                     },
                 });
                 document.getElementsByClassName('copy-plugin-button')[0].click();
+            } else {
+                clipboard.writeText(post.message).then(() => {
+                    // Success!
+                }).catch((err) => {
+                    console.error('Unable to copy to clipboard', err);
+                });
             }
         });
     }
