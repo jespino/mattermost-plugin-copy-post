@@ -6,7 +6,7 @@ import {id as pluginId} from './manifest';
 
 export default class CopyPlugin {
     initialize(registry, store) {
-        registry.registerPostDropdownMenuAction(<span className='copy-plugin-button'>{'Copy text'}</span>, (postId) => {
+        registry.registerPostDropdownMenuAction(<span className='copy-plugin-button'>{'Copy Text'}</span>, (postId) => {
             const state = store.getState();
             const post = getPost(state, postId);
 
